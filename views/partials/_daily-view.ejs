@@ -1,0 +1,77 @@
+
+
+<div class="habit-list container">
+    <% if( !habits || habits.length === 0){ %>
+        <hr/>
+        <div class="row-items" style="margin-left: -250px;">
+            <h3>No Habits Present !!</h3>
+            </div>
+   <% } %> 
+    <div class="row">
+        
+    <% habits.forEach(details => { let tzoffset = (new Date()).getTimezoneOffset() * 60000, found=false, status='', isDone = true;
+        var today = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 10);
+        <!-- to keep track of the current status of the item -->
+        details.dates.find(function (item, index) {
+            if(item.date === today)
+            {
+                found = true;
+                status = item.complete;
+                
+                if(item.complete === 'yes' ){
+                    isDone = true;
+                }else {
+                    isDone = false;
+                }
+            }
+        });
+
+        <!-- filter out the completed habit's dates  -->
+        let dateList = details.dates.filter((ele) => ele.complete === "yes");
+        let color = '';
+        if(status === 'yes'){
+            color = 'green'
+        }else if(status === 'no'){
+            color = 'red'
+        }else {
+            color = 'gold'
+        }
+
+     %>
+        
+    <div class="card border border-primary shadow-0 col-lg-3 col-md-12 habit-list-element"  style="color:rebeccapurple">
+        <div class="card-header" style="border-bottom: 2px solid <%= color %>" >
+            <span> <%= dateList.length  %> / <%=details.dates.length %> </span>
+             </div>   
+             
+             <div class="card-body">
+                <h5 class="card-title"><%= details.content %></h5>
+            
+              </div>
+          
+        <div class="card-footer" style="border-top: 2px solid <%= color %>">
+               <a href="status-update/?id=<%= details._id %>&date=<%= today %>" class="status">
+            <% if(found && status==='yes'){ %>
+            <i class="fa-regular fa-square-check"></i>
+            <% } else if(found && status==='no'){ %>
+            <i class="fa-solid fa-square-xmark"></i>
+            <% } else { %>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <% } %>
+        </a>    
+        &emsp;  <a href="/favorite/?id=<%= details._id %>" class="favorite">
+            <% if(details.favorite) { %>
+            <i class="fas fa-star"></i>
+            <% } else { %>
+            <i class="far fa-star"></i>
+            <% } %>
+        </a>
+        <a href="/remove/?id=<%= details._id %>" class="remove">
+            <i class="far fa-trash-alt"></i>
+        </a> 
+        </div>
+      </div>
+
+    <% }) %>
+    </div>
+</div>

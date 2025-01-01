@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-secondary navbar-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Habit Tracker</a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 ms-5">
+
+        <%- include('_toggle-view') %>
+      </ul>
+
+      <!-- Icons -->
+      <ul class="navbar-nav d-flex flex-row me-2">
+        <li class="nav-item me-3 me-lg-0">
+          <img class = 'me-2' src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553__340.png" width="45px" height="45px" alt="">
+          </li>
+        <li class="nav-item me-3 me-lg-0">
+            <p class="lead float-right mb-3 me-5" style="color: white">
+              <%= user.name %>
+            </p>
+        </li>
+       
+        <li class="nav-item me-3 me-lg-0">
+            <a href="/users/log-out" class="btn btn-danger">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

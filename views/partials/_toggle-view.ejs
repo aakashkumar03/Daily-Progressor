@@ -1,0 +1,22 @@
+<form action="/toggle-view" method="POST" class="habit-header">
+  <div class="btn-group" aria-label="Change View">
+    <!-- toggling daily/weekly view options -->
+    <% if(user.viewType === "daily"){ %>
+    <button
+      type="submit"
+      class="btn btn-success active"
+      aria-pressed="true"
+      disabled
+    >
+      Daily
+    </button>
+    <button type="submit" class="btn btn-primary">Weekly</button>
+
+    <% } else { %>
+    <button type="submit" class="btn btn-primary">Daily</button>
+    <button type="submit" class="btn btn-success" aria-pressed="true" disabled>
+      Weekly
+    </button>
+    <% } %>
+  </div>
+</form>

@@ -1,0 +1,73 @@
+<ul class="habit-list habit-list-weekly text-center">
+    <% if( !habits || habits.length === 0){ %>
+        <hr/>
+        <li class="row-items" style="margin-left: -150px;">
+            <h3>No Habits Present !!</h3>
+            </li>
+   <% } %> 
+   <!-- To keep track of current Streak -->
+    <% habits.forEach(details => {
+        let sortedDate = details.dates.sort((a,b) => a.date - b.date);
+
+        let currentStreak = 0;
+
+        for (let i = 0; i < sortedDate.length; i++) {
+          const item = sortedDate[i];
+          if (item.complete === 'yes') {
+            currentStreak++;
+          } else {
+              break;
+          }
+        }
+        %>
+
+    <li class="habit-list-item habit-list-weekly-item">
+       <div>
+        <div class="habit-list-item-name"><b><%= details.content %></b></div>
+      <hr>
+        <p>
+   
+            <a href="/favorite/?id=<%= details._id %>" class="favorite">
+            <% if(details.favorite) { %>
+            <i class="fas fa-star"></i>
+            <% } else { %>
+            <i class="far fa-star"></i>
+            <% } %>
+        </a>
+        <a href="/remove/?id=<%= details._id %>" class="remove">
+            <i class="far fa-trash-alt"></i>
+        </a>
+            &emsp; 
+        <span> Current Streak:- <%= currentStreak %> </span>
+    </p>
+       </div>
+       <div class="calendar-items">
+        <% days.forEach(day => { let found = false, status = '';
+        details.dates.find(function (item, index) {
+            if(item.date === day.date)
+            {
+                found = true;
+                status = item.complete;
+            }
+        });
+        
+        %>
+
+
+        <div class="day-items">
+            <div class="day mt-0"><span><%= day.day + ", " + day.date.slice(-2) %></span></div>
+            <a href="status-update/?id=<%= details._id %>&date=<%= day.date %>" class="status2 mt-4">
+                <% if(found && status==='yes'){ %>
+                <i class="fa-regular fa-square-check"></i>
+                <% } else if(found && status==='no'){ %>
+                <i class="fa-solid fa-square-xmark"></i>
+                <% } else { %>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <% } %>
+            </a>
+        </div>
+        <% }) %>
+       </div>
+    </li>
+    <% }) %>
+</ul>

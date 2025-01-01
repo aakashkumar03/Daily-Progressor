@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: slategray;
+    overflow-y: none;
+}
+
+.navbar{
+    background: rgba(0, 0, 0, 0.33) !important;
+}
+
+.habit-container {
+    color: white;
+    padding: 20px;
+    width: 1000px;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    margin: auto;
+    margin-top: 1%;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden ;
+}
+
+.habit {
+    width: 900px;
+}
+
+.habit-container h2 {
+    padding: 10px;
+    font-family: 'Candal', sans-serif;
+    font-size: 2em;
+}
+
+.habit-header input {
+    width: 54%;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    font-family: 'Candal', sans-serif;
+}
+
+.habit-header .add-btn {
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 8px 13px;
+    font-family: 'Candal', sans-serif;
+    background-color: rgb(51, 212, 100);
+}
+
+.habit-container ul {
+    list-style: none;
+}
+
+.habit-list{
+    margin-left: 13%;
+    margin-top:4%;
+}
+
+.habit-list-weekly{
+    margin-top:4%;
+    margin-left: 0%;
+}
+
+
+
+
+
+.habit-list > .row{
+    margin: auto;
+    grid-gap: 24px;
+} 
+.habit-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Candal', sans-serif;
+    background: rgba(0, 0, 0, 0.33);
+    display: flex;
+    flex-direction: row;
+}
+
+
+.habit-list-weekly-item{
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-list-weekly-item > .calendar-items{
+    display: flex;
+}
+
+.habit-container{
+    background: rgba(0, 0, 0, 0.33);
+
+}
+.habit-list-element form {
+    width: 100%;
+    display: flex;
+}
+
+.habit-list-element input {
+    flex-grow: 2;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Candal', sans-serif;
+}
+
+.habit-list-element button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: 'Candal', sans-serif;
+    background-color: rgb(51, 212, 100);
+}
+
+.habit-list-element .cancel {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: 'Candal', sans-serif;
+    background-color: red;
+    margin-left: 5px;
+}
+
+.habit-list-element .favorite {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Candal', sans-serif;
+    color: gold;
+    margin-right: 10px;
+    margin-top: 2.5px;
+    font-size: 18px;
+}
+
+.habit-list-item div {
+    flex-grow: 2;
+    margin-top: 2.5px;
+}
+
+.habit-list-element .edit {
+    color: rgb(143, 233, 58);
+    margin-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.habit-list-element .status {
+    margin-top: 2.5px;
+}
+
+.habit-list-element .remove {
+    color: red;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.status .fa-square-check {
+    color: green;
+    font-size: 24px;
+}
+
+.status .fa-square-xmark {
+    color: #E53C37;
+    font-size: 24px;
+}
+
+.status .fa-circle-exclamation {
+    color: gold;
+    font-size: 24px;
+}
+
+/* weekly view */
+.status2 .fa-square-check {
+    color: green;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.status2 .fa-square-xmark {
+    color: #E53C37;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.status2 .fa-circle-exclamation {
+    color: gold;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.fa-star, .fa-trash-alt{
+    font-size: 23px;
+}
+
+.habit-list-weekly  .fa-star {
+    color: gold;
+}
+
+.habit-list-weekly  .fa-trash-alt{
+    color: #E53C37;
+
+}
+/*
+  Weekly calendar stylings
+*/
+
+.day-items {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 12px;
+    position: relative;
+    width: 50px;
+    height: 60px;
+    background-color: #FFFFFA;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    font-size: 10pt;
+    border-radius: 3px;
+    box-shadow: 3px 3px 1px grey;
+    overflow: hidden;
+    user-select: none;
+}
+
+.day {
+    width: 100%;
+    background-color: #336d62;
+}
